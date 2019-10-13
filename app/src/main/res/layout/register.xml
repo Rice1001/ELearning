@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--设计注册界面-->
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <!--the first row-->
+    <TableRow android:id="@+id/tableRow1"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="45dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="35dp">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名"
+            android:layout_marginLeft="20dp"/>
+        <EditText android:id="@+id/registerUser"
+            android:layout_height="30dp"
+            android:layout_width="200dp"
+            android:background="@drawable/border"
+            android:layout_marginLeft="15dp"/>
+
+    </TableRow>
+
+    <!--the second row-->
+    <TableRow android:id="@+id/tableRow3"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="35dp">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="密  码"
+            android:layout_marginLeft="20dp"/>
+        <EditText android:id="@+id/registerPass1"
+            android:layout_height="30dp"
+            android:layout_width="200dp"
+            android:background="@drawable/border"
+            android:layout_marginLeft="15dp"/>
+    </TableRow>
+
+    <!--the third row-->
+    <TableRow android:id="@+id/tableRow2"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="35dp">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="再次输入"
+            android:layout_marginLeft="20dp"/>
+        <EditText android:id="@+id/registerPassAgain"
+            android:layout_height="30dp"
+            android:layout_width="200dp"
+            android:background="@drawable/border"
+            android:layout_marginLeft="15dp"/>
+    </TableRow>
+
+    <!--the fourth row-->
+    <TableRow android:id="@+id/tableRow4"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="35dp">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="密保邮箱"
+            android:layout_marginLeft="20dp"/>
+        <EditText android:id="@+id/registerMail"
+            android:layout_height="30dp"
+            android:layout_width="200dp"
+            android:background="@drawable/border"
+            android:layout_marginLeft="15dp"/>
+    </TableRow>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="left">
+
+        <Button android:id="@+id/sureButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="25dp"
+            android:text="确 定"
+            />
+
+        <Button android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="95dp"
+            android:layout_marginTop="25dp"
+            android:text="返 回"
+            />
+    </LinearLayout>
+</TableLayout>

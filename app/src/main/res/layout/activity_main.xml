@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <TextView android:text = "ELearning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="48px"
+            android:layout_marginTop="65dp"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/learning" />
+    </LinearLayout>>
+
+    <EditText android:id="@+id/userEdit"
+        android:textSize="30px"
+        android:layout_height="30dp"
+        android:layout_width="200dp"
+        android:background="@drawable/border"/>
+
+    <EditText android:id="@+id/passwordEdit"
+        android:textSize="30px"
+        android:layout_height="30dp"
+        android:layout_width="200dp"
+        android:background="@drawable/border"
+        android:layout_marginTop="8dp"
+        android:hint="输入密码"/>
+
+    <Button android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="登录"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="left">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="新用户注册"
+            android:id="@+id/register"
+            android:layout_marginTop="320dp"
+            android:layout_marginLeft="80dp"
+            android:textColor="#5FD5E4"/>
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="忘记密码"
+            android:id="@+id/forgetPassword"
+            android:layout_marginTop="320dp"
+            android:layout_marginLeft="110dp"
+            android:textColor="#E91E63"/>
+
+        </LinearLayout>
+
+</LinearLayout>
