@@ -35,7 +35,8 @@
         android:layout_width="200dp"
         android:background="@drawable/border"
         android:layout_marginTop="8dp"
-        android:hint="输入密码"/>
+        android:hint="输入密码"
+        android:inputType="textPassword"/>
 
     <Button android:id="@+id/loginButton"
         android:layout_width="wrap_content"
@@ -54,7 +55,7 @@
             android:layout_height="wrap_content"
             android:text="新用户注册"
             android:id="@+id/register"
-            android:layout_marginTop="320dp"
+            android:layout_marginTop="140dp"
             android:layout_marginLeft="80dp"
             android:textColor="#5FD5E4"/>
 
@@ -62,7 +63,7 @@
             android:layout_height="wrap_content"
             android:text="忘记密码"
             android:id="@+id/forgetPassword"
-            android:layout_marginTop="320dp"
+            android:layout_marginTop="140dp"
             android:layout_marginLeft="110dp"
             android:textColor="#E91E63"/>
 

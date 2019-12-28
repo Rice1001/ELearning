@@ -1,15 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:gravity="top|center">
 
-    <TextView android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="here"
-        android:textSize="66px"
-        android:textStyle="bold"
-        android:id="@+id/textContent"
-        android:gravity="center"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/kehan"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="238dp"
+        android:layout_height="122dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="10dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="115dp"
+                android:layout_height="59dp"
+                android:layout_margin="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/course1" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:orientation="vertical">
+
+                <!--课程名称-->
+                <TextView
+                    android:id="@+id/course_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:text="计算机体系结构"
+                    android:textSize="10dp" />
+
+                <!-- &lt;!&ndash;显示课程登记人数&ndash;&gt;
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:id="@+id/attendence"
+                    />-->
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
 
 </LinearLayout>

@@ -5,14 +5,20 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 public class firstActivity   extends AppCompatActivity implements  RadioGroup.OnCheckedChangeListener{
     private RadioGroup myRadioGroup;
     private RadioButton myRadioButton_1;
-    private MyFragment_1 fg1,fg2,fg3;
+    private MyFragment_1 fg1;
+    private MyFragment_2 fg2;
+    private  MyFragment_3 fg3;
     private FragmentManager fgManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +29,7 @@ public class firstActivity   extends AppCompatActivity implements  RadioGroup.On
         myRadioGroup.setOnCheckedChangeListener(this);
         myRadioButton_1 = (RadioButton)findViewById(R.id.radioButtonHome);
         myRadioButton_1.setChecked(true);
+
 
     }
 
@@ -41,7 +48,7 @@ public class firstActivity   extends AppCompatActivity implements  RadioGroup.On
                 break;
             case R.id.radioButtonSearch:
                 if(fg2 == null){
-                    fg2 = new MyFragment_1("search resource");
+                    fg2 = new MyFragment_2();
                     fgTransaction.add(R.id.home_container,fg2);
                 }else{
                     fgTransaction.show(fg2);
@@ -49,7 +56,7 @@ public class firstActivity   extends AppCompatActivity implements  RadioGroup.On
                 break;
             case R.id.radioButtonUser:
                 if(fg3 == null){
-                    fg3 = new MyFragment_1("user settings");
+                    fg3 = new MyFragment_3();
                     fgTransaction.add(R.id.home_container,fg3);
                 }else{
                     fgTransaction.show(fg3);
