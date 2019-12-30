@@ -1,24 +1,19 @@
 package com.example.elearning;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
 public class firstActivity   extends AppCompatActivity implements  RadioGroup.OnCheckedChangeListener{
     private RadioGroup myRadioGroup;
     private RadioButton myRadioButton_1;
-    private MyFragment_1 fg1;
-    private MyFragment_2 fg2;
-    private  MyFragment_3 fg3;
+    private MyFragment_course fg1;
+    private MyFragment_search fg2;
+    private MyFragment_user fg3;
     private FragmentManager fgManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +35,7 @@ public class firstActivity   extends AppCompatActivity implements  RadioGroup.On
         switch(checkedId){
             case R.id.radioButtonHome:
                 if(fg1 == null){
-                    fg1= new MyFragment_1("course Home");
+                    fg1= new MyFragment_course();
                     fgTransaction.add(R.id.home_container,fg1);
                 }else{
                     fgTransaction.show(fg1);
@@ -48,7 +43,7 @@ public class firstActivity   extends AppCompatActivity implements  RadioGroup.On
                 break;
             case R.id.radioButtonSearch:
                 if(fg2 == null){
-                    fg2 = new MyFragment_2();
+                    fg2 = new MyFragment_search();
                     fgTransaction.add(R.id.home_container,fg2);
                 }else{
                     fgTransaction.show(fg2);
@@ -56,7 +51,7 @@ public class firstActivity   extends AppCompatActivity implements  RadioGroup.On
                 break;
             case R.id.radioButtonUser:
                 if(fg3 == null){
-                    fg3 = new MyFragment_3();
+                    fg3 = new MyFragment_user();
                     fgTransaction.add(R.id.home_container,fg3);
                 }else{
                     fgTransaction.show(fg3);

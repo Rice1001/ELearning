@@ -13,7 +13,7 @@
         android:src="@drawable/kehan"
         />
 
-    <androidx.cardview.widget.CardView
+   <!-- <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="238dp"
         android:layout_height="122dp"
@@ -43,7 +43,7 @@
                 android:gravity="left"
                 android:orientation="vertical">
 
-                <!--课程名称-->
+                &lt;!&ndash;课程名称&ndash;&gt;
                 <TextView
                     android:id="@+id/course_name"
                     android:layout_width="wrap_content"
@@ -53,17 +53,25 @@
                     android:text="计算机体系结构"
                     android:textSize="10dp" />
 
-                <!-- &lt;!&ndash;显示课程登记人数&ndash;&gt;
+                &lt;!&ndash; &lt;!&ndash;显示课程登记人数&ndash;&gt;
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
                     android:id="@+id/attendence"
-                    />-->
+                    />&ndash;&gt;
             </LinearLayout>
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycler_view"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 </LinearLayout>
