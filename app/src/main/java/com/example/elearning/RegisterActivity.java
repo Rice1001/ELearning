@@ -2,6 +2,7 @@ package com.example.elearning;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +49,9 @@ public class RegisterActivity extends AppCompatActivity {
                 if(!"".equals(id) && !"".equals(pass1) && !"".equals(passAgain) && !"".equals(mail)){
                     if(pass1.equals(passAgain))
                        checkIfExist(user_register);
+                    else if(!isEmail(mail)){
+                        Toast.makeText(RegisterActivity.this,"邮箱格式有误", Toast.LENGTH_LONG).show();
+                    }
                     else{
                         Toast.makeText(RegisterActivity.this,"两次密码输入不一致", Toast.LENGTH_LONG).show();
                         registerPassEdit2.setText("");
@@ -91,4 +95,12 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
+    public static boolean isEmail(String strEmail) {
+        String strPattern = "^[a-zA-Z0-9][\\w\\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\\w\\.-]*[a-zA-Z0-9]\\.[a-zA-Z][a-zA-Z\\.]*[a-zA-Z]$";
+        if (TextUtils.isEmpty(strPattern)) {
+            return false;
+        } else {
+            return strEmail.matches(strPattern);
+        }
+    }
 }
