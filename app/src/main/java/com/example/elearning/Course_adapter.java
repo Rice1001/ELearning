@@ -62,7 +62,7 @@ public class Course_adapter extends RecyclerView.Adapter<Course_adapter.ViewHold
        // holder.course_image.setImageResource(course.getAvatar());
         holder.course_name.setText(course.getName());
         holder.course_start.setText(course.getOpenDate()+"");
-       // new ImageLoad().showImage(holder.courseImage,"files"+course.getAvatar());
+        new ImageLoad().showImage(holder.courseImage,"http://192.168.137.1:8080/elearn/courses/"+course.getId()+"/photo");
 
         //通过条目设置点击事件触发回调
         if(mOnItemClickLitener != null){
@@ -78,6 +78,6 @@ public class Course_adapter extends RecyclerView.Adapter<Course_adapter.ViewHold
 
     @Override
     public int getItemCount(){
-        return my_list.size();
+       return my_list.size();
     }
 }

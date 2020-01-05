@@ -10,12 +10,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -50,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.d("id",id);
                 Log.d("pass1",pass1);
                 Log.d("mail",mail);
-                person user_register = new person(id,pass1,mail);
+                Person user_register = new Person(id,pass1,mail);
                 if(!"".equals(id) && !"".equals(pass1) && !"".equals(passAgain) && !"".equals(mail)){
                     if(pass1.equals(passAgain))
                        checkIfExist(user_register);
@@ -69,17 +63,17 @@ public class RegisterActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_main = new Intent(RegisterActivity.this,MainActivity.class);
+                Intent intent_main = new Intent(RegisterActivity.this, MainActivity.class);
                 startActivity(intent_main);
             }
         });
     }
 
 
-    public void checkIfExist(person registerUser)
+    public void checkIfExist(Person registerUser)
     {
-        ArrayList<person> userList = (ArrayList<person>)DBdate.getAllUser();
-        Iterator<person>  it = userList.iterator();
+        ArrayList<Person> userList = (ArrayList<Person>)DBdate.getAllUser();
+        Iterator<Person>  it = userList.iterator();
         while(it.hasNext())
         {
             if((it.next().getName()).equals(registerUser.getName()))

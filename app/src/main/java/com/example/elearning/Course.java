@@ -1,5 +1,6 @@
 package com.example.elearning;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Date;
  *
  *
  */
-public class Course {
+public class Course implements Serializable {
     private String id;
     private String name;
     private String code;

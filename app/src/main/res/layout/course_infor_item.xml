@@ -34,7 +34,8 @@
         android:layout_height="wrap_content"
         android:text="2019-12-31到2020-2-2"
         android:layout_marginLeft="4dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:id="@+id/course_infor_rv_time"/>
 
 
     <TextView
@@ -58,7 +59,8 @@
         android:layout_height="wrap_content"
         android:text="      这门课程主要研究移动应用的开发"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="4dp"/>
+        android:layout_marginLeft="4dp"
+        android:id="@+id/course_infor_rv_description"/>
 
     <LinearLayout
         android:layout_width="match_parent"

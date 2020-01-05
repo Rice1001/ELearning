@@ -51,7 +51,10 @@ public class firstActivity   extends AppCompatActivity implements  RadioGroup.On
                 break;
             case R.id.radioButtonUser:
                 if(fg3 == null){
-                    fg3 = new MyFragment_user();
+                    String idIn = getIntent().getStringExtra("id");
+                    String passIn = getIntent().getStringExtra("pass");
+                    fg3 = new MyFragment_user(idIn, passIn);
+                    System.out.println(idIn);
                     fgTransaction.add(R.id.home_container,fg3);
                 }else{
                     fgTransaction.show(fg3);

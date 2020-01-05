@@ -9,9 +9,9 @@ import android.widget.ImageView;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 
-import javax.net.ssl.HttpsURLConnection;
 
 public class ImageLoad {
     private ImageView mImageView;
@@ -21,6 +21,7 @@ public class ImageLoad {
         @Override
         public void handleMessage(Message msg){
             super.handleMessage(msg);
+            System.out.println("我已经设置了图片");
             mImageView.setImageBitmap((Bitmap)msg.obj);
         }
     };
@@ -31,6 +32,7 @@ public class ImageLoad {
             @Override
             public void run() {
                 super.run();
+                System.out.println(url);
                 Bitmap bitmap = getBitmapFromUrl(url);
                 Message message = Message.obtain();
                 message.obj = bitmap;
@@ -46,8 +48,10 @@ public class ImageLoad {
         InputStream is = null;
         try{
             URL url = new URL(urlString);
-            HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-            is= new BufferedInputStream(connection.getInputStream());
+            HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+            connection.setDoInput(true);
+            connection.connect();
+            is = connection.getInputStream();
             bitmap = BitmapFactory.decodeStream(is);
             connection.disconnect();
             return bitmap;
@@ -55,7 +59,8 @@ public class ImageLoad {
             e.printStackTrace();
         }finally{
             try {
-                is.close();
+                if(is != null)
+                    is.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }

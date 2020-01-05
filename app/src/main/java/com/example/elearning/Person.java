@@ -1,18 +1,22 @@
 package com.example.elearning;
 
-public class person {
+public class Person {
     private String name;
     private String password;
     private String mail;
 
-    public person(String name, String password, String mail)
+    public Person(String name, String password, String mail)
     {
         this.name = name;
         this.password = password;
         this.mail = mail;
     }
+    public Person(String name, String pass){
+        this.name = name;
+        this.password = pass;
+    }
 
-    public person(){};
+    public Person(){};
 
 
     public String getMail() {

@@ -1,9 +1,11 @@
 package com.example.elearning;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.InputStream;
+import java.io.Serializable;
 import java.util.List;
 
 public class MyFragment_course extends Fragment {
@@ -28,16 +32,50 @@ public class MyFragment_course extends Fragment {
     private List<Course> courseList;
     private RecyclerView recyclerView;
     private Course_adapter adapter;
+    private  DataRequest dataRequest = DataRequest.getInstance();
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.full_course,container,false);
-        sendRequest();
+        //sendRequest();
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_view);
+        new MyAsyncTask(recyclerView).execute();
         return view;
 
     }
+
+  class MyAsyncTask extends AsyncTask<Void,Void,List<Course>>{
+
+        private  RecyclerView rvView;
+        public MyAsyncTask(RecyclerView recyclerView){
+            rvView = recyclerView;
+        }
+
+      @Override
+      protected List<Course> doInBackground(Void... voids) {
+          dataRequest = DataRequest.getInstance();
+          dataRequest.test();
+          return dataRequest.getCourseList();
+      }
+
+      @Override
+      protected void onPostExecute(final List<Course> courseList) {
+          super.onPostExecute(courseList);
+          LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity (),LinearLayoutManager.VERTICAL,false);
+          rvView.setLayoutManager(layoutManager);
+          adapter = new Course_adapter(courseList);
+          adapter.setOnItemClickLitener(new Course_adapter.OnItemClickLitener() {
+              @Override
+              public void onItemClick(View view, int position) {
+                  Intent intent = new Intent(getActivity(), CourseInfor.class);
+                  intent.putExtra("courselist",(Serializable)(courseList.get(position)));
+                  startActivity(intent);
+              }
+          });
+          rvView.setAdapter(adapter);
+      }
+  }
 
     //向服务器发送请求获取json数据
     public  void sendRequest(){
@@ -74,7 +112,6 @@ public class MyFragment_course extends Fragment {
         Message msg=new Message();
         msg.what=1;
         handler.sendMessage(msg);
-
     }
 
     public Handler handler=new Handler(){
@@ -87,8 +124,9 @@ public class MyFragment_course extends Fragment {
                     adapter = new Course_adapter(courseList);
                     adapter.setOnItemClickLitener(new Course_adapter.OnItemClickLitener() {
                         @Override
-                        public void onItemClick(View view, int posion) {
+                        public void onItemClick(View view, int position) {
                             Intent intent = new Intent(getActivity(), CourseInfor.class);
+                            intent.putExtra("courselist",(Serializable)(courseList.get(position)));
                             startActivity(intent);
                         }
                     });
@@ -97,4 +135,6 @@ public class MyFragment_course extends Fragment {
             }
         }
     };
+
+
 }

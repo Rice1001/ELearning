@@ -3,10 +3,21 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <VideoView
+    <!--<VideoView
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:id="@+id/video"/>
+        android:id="@+id/video"/>-->
+
+    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+        android:id="@+id/videoplayer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="播放"
+        android:id="@+id/start2"/>
 
 
     <RelativeLayout
@@ -30,7 +41,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#78D8CF"
-                android:text="试听" />
+                android:text="试听"
+                android:id="@+id/try_play"/>
 
             <Button
                 android:layout_width="wrap_content"

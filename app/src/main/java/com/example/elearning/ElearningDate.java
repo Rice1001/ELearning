@@ -23,7 +23,7 @@ public class ElearningDate {
      * @param person 注册用户对象
      *
      */
-    public void addUser(person person)
+    public void addUser(Person person)
     {
         db = helper.getWritableDatabase();
         db.execSQL("insert into user (id,password,mail) values(?,?,?)",new Object[]{person.getName(),
@@ -35,14 +35,14 @@ public class ElearningDate {
      *
      * @return persons 用户集合
      */
-    public List<person> getAllUser()
+    public List<Person> getAllUser()
     {
         db = helper.getReadableDatabase();
-        ArrayList<person> persons = new ArrayList<person>();
+        ArrayList<Person> persons = new ArrayList<Person>();
         Cursor c = db.rawQuery("select*from user",null);
         while(c.moveToNext())
         {
-            person person  = new person();
+            Person person  = new Person();
             person.setName(c.getString(c.getColumnIndex("id")));
             person.setPassword(c.getString(c.getColumnIndex("password")));
             person.setMail(c.getString(c.getColumnIndex("mail")));

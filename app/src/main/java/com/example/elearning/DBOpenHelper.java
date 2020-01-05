@@ -16,6 +16,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     public  void onCreate(SQLiteDatabase db){
         db.execSQL("Create table user(id varchar(10) primary key,password varchar(20), mail varchar(30))");
         db.execSQL("Create table course(cno varchar(8) primary key,cname varchar(20),teacher varchar(20))");
+
     }
 
     @Override
